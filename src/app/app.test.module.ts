@@ -35,6 +35,7 @@ import {JoinClassComponent} from "./join-class-component/join-class.component";
 import {GoogleSignInButtonComponent} from "./google-sign-in-button/google-sign-in-button.component";
 import {PublicDecksComponent} from "./public-decks/public-decks.component";
 import {SaveCardDialogComponent} from "./save-card-dialog/save-card-dialog.component";
+import {SaveDeckDialogComponent} from "./save-deck-dialog/save-deck-dialog";
 import {JoinGameComponent} from "./join-game/join-game.component";
 import {AngularFireDatabaseModule} from "angularfire2/database";
 
@@ -67,6 +68,7 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
         GoogleSignInButtonComponent,
         PublicDecksComponent,
         SaveCardDialogComponent,
+        SaveDeckDialogComponent,
         JoinGameComponent
     ],
     entryComponents: [

@@ -142,4 +142,9 @@ export class DeckService {
             tags: newTags
         });
     }
+    public renameDeck(deckId: string, newName:string) {
+        return this.db.doc("deck/" + deckId).update({
+            name: newName
+        });
+    }
 }

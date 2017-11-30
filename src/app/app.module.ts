@@ -25,6 +25,7 @@ import {MdDialog} from "@angular/material";
 import {NewCardDialogComponent} from "./new-card-dialog/new-card-dialog.component";
 import {NewDeckDialogComponent} from "./new-deck-dialog/new-deck-dialog.component";
 import {SaveCardDialogComponent} from './save-card-dialog/save-card-dialog.component';
+import {SaveDeckDialogComponent} from "./save-deck-dialog/save-deck-dialog";
 import {AngularFirestoreModule} from "angularfire2/firestore";
 import {AngularFireModule} from "angularfire2";
 import {AngularFireAuthModule} from "angularfire2/auth";
@@ -67,6 +68,7 @@ import {MatChipsModule} from '@angular/material/chips';
         GoogleSignInButtonComponent,
         PublicDecksComponent,
         SaveCardDialogComponent,
+        SaveDeckDialogComponent,
         JoinGameComponent,
         GameJoinDialogComponent,
     ],
@@ -76,6 +78,7 @@ import {MatChipsModule} from '@angular/material/chips';
         NewClassDialogComponent,
         NewDeckDialogComponent,
         SaveCardDialogComponent,
+        SaveDeckDialogComponent,
         GameJoinDialogComponent,
     ],
     providers: [
