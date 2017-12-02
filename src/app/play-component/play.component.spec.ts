@@ -18,13 +18,52 @@ describe('PlayComponent', () => {
   let cardState: CardState;
   let fixture: ComponentFixture<PlayComponent>;
 
+  let deckServiceStub: {
+      getDeck: (id) => Observable<Deck>,
+      getDeckPlayCards: (id) => Observable<Card[]>
+  };
+
     beforeEach(async(() => {
+
+        deckServiceStub = {
+            getDeck: (id) => Observable.of({
+                name: "test deck"
+            }),
+            getDeckPlayCards: (id) => Observable.of([
+                {
+                    word : "test word",
+                    synonym : "test synonym",
+                    antonym: "test antonym",
+                    general_sense: "test general_sense",
+                    example_usage: "test example_usage",
+                    hidden: false,
+                },
+
+                {
+                    word : "test word",
+                    synonym : "test synonym",
+                    antonym: "test antonym",
+                    general_sense: "test general_sense",
+                    example_usage: "test example_usage",
+                    hidden: false,
+                },
+
+                {
+                    word : "test word",
+                    synonym : "test synonym",
+                    antonym: "test antonym",
+                    general_sense: "test general_sense",
+                    example_usage: "test example_usage",
+                    hidden: false,
+                }
+            ])
+        };
 
         TestBed.configureTestingModule({
             imports: [SharedModule, AppTestModule],
             declarations: [],
             providers: [{provide: MATERIAL_COMPATIBILITY_MODE, useValue: true},
-                {provide: DeckService, useValue: new DeckServiceMock()},
+                {provide: DeckService, useValue: deckServiceStub},
                 { provide: ActivatedRoute,
                     useValue: {
                         params: Observable.of({id: "test id"})
@@ -49,38 +88,24 @@ describe('PlayComponent', () => {
       expect(component.cardStates[0]).toEqual(card_state);
   });
 
-  // commenting out for now, doesn't work with multiplayer
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 
-  // it('should add points correctly based on certain card states', () => {
-  //     let card_state1: CardState;
-  //     let card_state2: CardState;
-  //     let card_state3: CardState;
-  //
-  //
-  //     card_state1 = component.getCardState(0);
-  //     card_state2 = component.getCardState(1);
-  //     card_state3 = component.getCardState(2);
-  //     expect(component.cardStates.length).toEqual(3);
-  //
-  //     card_state1.randomizeSages();
-  //
-  //     card_state2.randomizeSages();
-  //     card_state2.randomizeSages();
-  //
-  //     card_state3.randomizeSages();
-  //     card_state3.randomizeSages();
-  //     card_state3.randomizeSages();
-  //
-  //     component.addPoints(0);
-  //     expect(component.points).toEqual(card_state1.cardPoints);
-  //
-  //     component.addPoints(1);
-  //     expect(component.points).toEqual(card_state1.cardPoints + card_state2.cardPoints);
-  //
-  //     component.addPoints(2);
-  //     expect(component.points).toEqual(card_state1.cardPoints + card_state2.cardPoints + card_state3.cardPoints);
-  //
-  // });
+    it('should add to cardStates array', () => {
+        let card_state: CardState;
+        card_state = component.getCardState(0);
+        expect(component.cardStates[0]).toEqual(card_state);
+    });
+
+    it('should increase page number when adding points', () => {
+        let card_state1: CardState;
+        card_state1 = component.getCardState(0);
+
+        component.addPoints(0);
+        expect(component.pageNumber).toEqual(1);
+    });
+
 
   it('should increase page number when adding points', () => {
       let card_state1: CardState;
