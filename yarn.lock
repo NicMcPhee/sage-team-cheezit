@@ -3483,9 +3483,9 @@ ng2-rx-componentdestroyed@^1.1.2:
   dependencies:
     rxjs "5.x"
 
-ngx-clipboard@^8.1.1:
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/ngx-clipboard/-/ngx-clipboard-8.1.1.tgz#574390a6dd48aa1a58350a14b1a0d764204495f5"
+ngx-clipboard@^8.1.4:
+  version "8.1.4"
+  resolved "https://registry.yarnpkg.com/ngx-clipboard/-/ngx-clipboard-8.1.4.tgz#60272fc4ecef9a0d007779366a4c46be864ca7f1"
   dependencies:
     ngx-window-token "0.0.4"
 
